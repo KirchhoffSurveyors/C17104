@@ -42,7 +42,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        })
+        }).fitBounds([[-26.2198157824,28.0373106924],[-26.2158327012,28.0444600844]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>,<a href="https:www.kirchhoffsurveyors.co.za" target="_blank">Kirchhoff Professional Surveyors</a>');
         var measureControl = new L.Control.Measure({
@@ -58,9 +58,6 @@
 });
         basemap0.addTo(map);
         function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
         }
         function pop_SurroundingErf_0(feature, layer) {
             var popupContent = '<table>\
@@ -80,7 +77,7 @@
             return {
                 pane: 'pane_SurroundingErf_0',
                 opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
+                color: 'rgba(175,179,138,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -103,24 +100,19 @@
         function pop_Schemes_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">id</th>\
-                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                        <td colspan="2"><strong>id</strong><br />' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Erf</th>\
-                        <td>' + (feature.properties['Erf'] !== null ? Autolinker.link(String(feature.properties['Erf'])) : '') + '</td>\
+                        <td colspan="2"><strong>Erf</strong><br />' + (feature.properties['Erf'] !== null ? Autolinker.link(String(feature.properties['Erf'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Net Income</th>\
-                        <td>' + (feature.properties['Net Income'] !== null ? Autolinker.link(String(feature.properties['Net Income'])) : '') + '</td>\
+                        <td colspan="2"><strong>Net Income</strong><br />' + (feature.properties['Net Income'] !== null ? Autolinker.link(String(feature.properties['Net Income'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Price</th>\
-                        <td>' + (feature.properties['Price'] !== null ? Autolinker.link(String(feature.properties['Price'])) : '') + '</td>\
+                        <td colspan="2"><strong>Price</strong><br />' + (feature.properties['Price'] !== null ? Autolinker.link(String(feature.properties['Price'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">GLA</th>\
-                        <td>' + (feature.properties['GLA'] !== null ? Autolinker.link(String(feature.properties['GLA'])) : '') + '</td>\
+                        <td colspan="2"><strong>GLA</strong><br />' + (feature.properties['GLA'] !== null ? Autolinker.link(String(feature.properties['GLA'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -130,7 +122,7 @@
             return {
                 pane: 'pane_Schemes_1',
                 opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
+                color: 'rgba(231,247,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -212,7 +204,7 @@
             return {
                 pane: 'pane_Erf_2',
                 opacity: 1,
-                color: 'rgba(175,179,138,1.0)',
+                color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
@@ -247,7 +239,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['tag'] !== null?String('<div style="color: #000000; font-size: 7pt; font-family: \'Sans Serif\', sans-serif;">' + layer.feature.properties['tag']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Erf_2'});
+            layer.bindTooltip((layer.feature.properties['tag'] !== null?String('<div style="color: #000000; font-size: 9pt; font-family: \'Sans Serif\', sans-serif;">' + layer.feature.properties['tag']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Erf_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
